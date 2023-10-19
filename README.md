@@ -23,7 +23,6 @@ cmake --build --preset NinjaMC-Msvc --config RelWithDebInfo --target run
 ```
 ```
 cmake --preset NinjaMC-Gnu -D linkSharedOrStaticLibAsShared=<ON/OFF> -D LibrarySuite_DIR=../CreateAndUseLibraries/buildMake/Gnu/install/LibrarySuite0.1.0/static/share/cmake/
-cmake --preset NinjaMC-Gnu -D linkSharedOrStaticLibAsShared=OFF
 cmake --build --preset NinjaMC-Gnu --config Debug --target run
 cmake --build --preset NinjaMC-Gnu --config Release --target run
 cmake --build --preset NinjaMC-Gnu --config RelWithDebInfo --target run

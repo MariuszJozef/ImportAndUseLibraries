@@ -1,7 +1,7 @@
 #[==================================================[
 UseImportedLibs (executable program)
 DO NOT call it "targetExe" because if fetching (instead of finding preinstalled libraries)
-it will conflict with targetExe that is already defined in the sibling project:
+it will conflict with "targetExe" that is already defined in the sibling project:
 https://github.com/MariuszJozef/CreateAndUseLibraries.git
 #]==================================================]
 add_executable(targetExe2)

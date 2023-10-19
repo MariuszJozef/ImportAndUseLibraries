@@ -40,8 +40,11 @@ target_link_libraries(targetExe2
 
 #[==================================================[
 Run the executable 
+DO NOT call it "run" because if fetching (instead of finding preinstalled libraries)
+it will conflict with "run" that is already defined in the sibling project:
+https://github.com/MariuszJozef/CreateAndUseLibraries.git
 #]==================================================]
-add_custom_target(run
+add_custom_target(run2
     COMMAND ${CMAKE_COMMAND} -E echo "execute: $<TARGET_FILE:targetExe2>"
     COMMAND $<TARGET_FILE:targetExe2>
 )
