@@ -28,9 +28,11 @@ if(linkSharedOrStaticLibAsShared)
         set(buildDir )
     endif()
 
-    set(${packageName}_DIR 
-        ../CreateAndUseLibraries/${buildDir}/install/${packageName}${packageVersion}/${sharedOrStaticType}/share/cmake
-    )
+    if(NOT DEFINED ${packageName}_DIR)
+        set(${packageName}_DIR 
+            ../CreateAndUseLibraries/${buildDir}/install/${packageName}${packageVersion}/${sharedOrStaticType}/share/cmake
+        )
+    endif()
     message(STATUS "linkSharedOrStaticLibAsShared: " ${linkSharedOrStaticLibAsShared} " --- targetSharedOrStaticLib will be linked as SHARED library")
     message(STATUS "${packageName}_DIR: ${${packageName}_DIR}")
 
@@ -52,9 +54,11 @@ else()
         set(buildDir )
     endif()
 
-    set(${packageName}_DIR 
-        ../CreateAndUseLibraries/${buildDir}/install/${packageName}${packageVersion}/${sharedOrStaticType}/share/cmake
-    )
+    if(NOT DEFINED ${packageName}_DIR)
+        set(${packageName}_DIR 
+            ../CreateAndUseLibraries/${buildDir}/install/${packageName}${packageVersion}/${sharedOrStaticType}/share/cmake
+        )
+    endif()
     message(STATUS "linkSharedOrStaticLibAsShared: " ${linkSharedOrStaticLibAsShared} " --- targetSharedOrStaticLib will be linked as STATIC library")
     message(STATUS "${packageName}_DIR: ${${packageName}_DIR}")
 
@@ -74,7 +78,7 @@ else()
     set(FETCHCONTENT_QUIET FALSE)
     
     FetchContent_Declare(librarySuite1
-        GIT_REPOSITORY  https://gitlab.com/cmakeexamples/librarieswithconfigcmake/createanduselibraries.git
+        GIT_REPOSITORY  https://github.com/MariuszJozef/CreateAndUseLibraries.git
         GIT_TAG         LibrarySuite1
         SOURCE_DIR      ${CMAKE_SOURCE_DIR}/External/${packageName}
         GIT_PROGRESS    TRUE
