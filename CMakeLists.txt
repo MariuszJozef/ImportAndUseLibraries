@@ -30,7 +30,7 @@ add_subdirectory(UseImportedLibsNeedsCpp11)
 #[==================================================[
 Link executable with found/fetched libraries
 #]==================================================]
-target_link_libraries(targetExe 
+target_link_libraries(targetExe2 
     PRIVATE 
         LibrarySuite::HeaderLib
         LibrarySuite::SharedLib
@@ -42,8 +42,8 @@ target_link_libraries(targetExe
 Run the executable 
 #]==================================================]
 add_custom_target(run
-    COMMAND ${CMAKE_COMMAND} -E echo "execute: $<TARGET_FILE:targetExe>"
-    COMMAND $<TARGET_FILE:targetExe>
+    COMMAND ${CMAKE_COMMAND} -E echo "execute: $<TARGET_FILE:targetExe2>"
+    COMMAND $<TARGET_FILE:targetExe2>
 )
 
 #[==================================================[

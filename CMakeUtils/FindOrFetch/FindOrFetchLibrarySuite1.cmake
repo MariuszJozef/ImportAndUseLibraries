@@ -79,7 +79,7 @@ else()
     
     FetchContent_Declare(librarySuite1
         GIT_REPOSITORY  https://github.com/MariuszJozef/CreateAndUseLibraries.git
-        GIT_TAG         LibrarySuite1
+        GIT_TAG         master
         SOURCE_DIR      ${CMAKE_SOURCE_DIR}/External/${packageName}
         GIT_PROGRESS    TRUE
         GIT_SHALLOW     TRUE

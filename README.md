@@ -8,7 +8,13 @@ should be provided at the CMake's configure step. If the library is not installe
 
 The third party project in question is [CreateAndUseLibraries](https://github.com/MariuszJozef/CreateAndUseLibraries.git) and its package name is "LibrarySuite", so the flag variable is: `LibrarySuite_DIR` and needs to point to the location of LibrarySuiteConfig.cmake.
 
+It is noteworthy that the current project needs only to be compiled with C++11 even though the libraries it uses require C++14, C++17, C++20 for compilation. This remains true even when the source code of the libraries gets incorporated into and build with this project on the fly (as happens when CMake fetches the libraries from a remote repo). Had it not been for `<packageName>Config.cmake`, then this project would not compile merely with C++11.
+
 ## Some sample commands to configure, build/link, and run the program
+```
+git clone --depth 1 https://github.com/MariuszJozef/ImportAndUseLibraries.git
+cd ImportAndUseLibraries
+```
 ```
 cmake --preset NinjaMC-Msvc -D linkSharedOrStaticLibAsShared=<ON/OFF> -D LibrarySuite_DIR=C:/Packages/LibrarySuite/share/cmake
 cmake --build --preset NinjaMC-Msvc --config Debug --target run
