@@ -30,13 +30,26 @@ add_subdirectory(UseImportedLibsNeedsCpp11)
 #[==================================================[
 Link executable with found/fetched libraries
 #]==================================================]
-target_link_libraries(targetExe2 
-    PRIVATE 
-        LibrarySuite::HeaderLib
-        LibrarySuite::SharedLib
-        LibrarySuite::SharedOrStaticLib
-        LibrarySuite::StaticLib
-)
+if(${packageName}_FOUND)
+    target_link_libraries(targetExe2 
+        PRIVATE 
+                LibrarySuite::HeaderLib
+                LibrarySuite::SharedLib
+                LibrarySuite::SharedOrStaticLib
+                LibrarySuite::StaticLib
+    )
+
+else()
+
+    target_link_libraries(targetExe2 
+        PRIVATE 
+                targetHeaderLib
+                targetSharedLib
+                targetSharedOrStaticLib
+                targetStaticLib
+    )
+
+endif()
 
 #[==================================================[
 Run the executable 
